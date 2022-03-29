@@ -8,9 +8,6 @@ const App = () => {
     <div>
       <h1>Adopt Me!</h1>
       <SearchParams />
-      <Pet name="Marta" animal="Dog" breed="Blackdog" />
-      <Pet name="Pepper" animal="Bird" breed="Cockatiel" />
-      <Pet name="Fluffykins" animal="Cat" breed="Tabby" />
     </div>
   );
 };
