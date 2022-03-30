@@ -37,3 +37,25 @@ Notes:
 * * and you will get the wrong things updating at the wrong time.
 
 #### useEffect
+* A function
+
+
+#### Rolling your own
+* Nothing special about using your own function to make reusable logic.
+* You should probably follow the convention of returning multiple elements in an array `[]`
+
+### React Dev Tools
+Make sure the following line is set during development, but *not* set for release builds. Parcel does this automatically. Other packagers like WebPack do not.
+```NODE_ENV=development```
+
+**Strict Mode**
+```import { StrictMode } from 'react';```
+Now, it can be enabled for any section. For example, at the top level:
+```js
+return (
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+```
+
