@@ -92,3 +92,12 @@ By default, React Router will continue through the page, adding every node that 
 * `this.state` is mutable, but **don't modify it directly.** Use `this.setState()` to modify it.
 * functions that start with `with` are Higher Order Components (HOC). We are using `withRouter()` here to compose functionality into our component via react-router.
 * `componentWillUnmount()` runs once at the end of a component's lifecycle. Useful for rare cleanup operations like unscribing to an API where youmust dispose of a subscription.
+
+## Context
+`createContext` is a function that returns an object with two React components: a Provider and a Consumer.
+* Provider: how to scope where a context goes. 
+* * Context will only be available inside the provider. Only do this once.
+* Consumer: How you consume from the provider.
+* * Accepts a function as a child & gives it the context you can use.
+* * Not used directly. A `useContext` hook does that. (Except in class components.)
+
