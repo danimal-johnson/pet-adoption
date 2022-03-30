@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import Carousel from './Carousel';
+import ErrorBoundary from './ErrorBoundary';
 
 // Created to show how to use class components with the withRouter HOC.
 //  const { id } = useParams(); <-- useParams() is how we would get the ID from React Router in a *functional* component
@@ -24,11 +26,13 @@ class Details extends Component {
       return <h2>Loading...</h2>
     }
 
-    const { name, animal, breed, city, state, description } = this.state;
-    // TODO: Add images?
+    const { name, animal, breed, city, state, description, images } = this.state;
+    
+    // throw new Error('This is a test error'); // TODO: FOR TESTING ONLY
 
     return (
       <div className='details'>
+        <Carousel images={images} />
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} - ${breed} - ${city}, ${state}`}</h2>
@@ -40,4 +44,12 @@ class Details extends Component {
   }
 }
 
-export default Details;
+const DetailsWithRouter = withRouter(Details);
+
+export default function detailsWithErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <DetailsWithRouter {...props} />
+    </ErrorBoundary>
+  )
+}

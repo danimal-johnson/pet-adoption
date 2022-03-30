@@ -16,7 +16,7 @@ const SearchParams = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function requestPets() {
-    console.log (`Requesting pets from ${location}, ${animal}, ${breed}`);
+    // console.log (`Requesting pets from ${location}, ${animal}, ${breed}`);
     const res = await fetch(`http://pets-v2.dev-apis.com/pets?location=${location}&animal=${animal}&breed=${breed}`);
     const json = await res.json();
     setPets(json.pets);
