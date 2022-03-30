@@ -59,3 +59,36 @@ return (
 );
 ```
 
+## React Router
+All the following must be wrapped in a `<Router>` tag to function.
+### Link
+Inserts the equivalent of an `<a>` element.
+Allows website to be a single-page app. Without it, the back-button would cause a re-load.
+```js
+<Link to="/"><h1>Home</h1></Link>
+```
+### Route
+Allows URL routes to be added at the current spot:
+```js
+<Route path="/">
+  <SearchParams />
+</Route>
+```
+### Switch
+By default, React Router will continue through the page, adding every node that matches the current URL. Nesting the routes within a switch statement will tell it to stop after the first match:
+```js
+<Switch>
+  <Route path="/details/:id" component={Details} />
+  <Route path="/" component={SearchParams} />
+</Switch>
+```
+
+## Class Components
+* Every class extends `React.Component`. They don't all need constructors.
+* If there is a constructor, it *must* call `super(props)`
+* Every clas must have a `render()` method that returns some sort of JSX / markup / call to `React.createElement()`.
+* `componentDidMount()` (optional) runs only once, after first rendering is completed. Similar to `useEffect()` that only runs once.
+* `this.props` comes from the parent component.
+* `this.state` is mutable, but **don't modify it directly.** Use `this.setState()` to modify it.
+* functions that start with `with` are Higher Order Components (HOC). We are using `withRouter()` here to compose functionality into our component via react-router.
+* `componentWillUnmount()` runs once at the end of a component's lifecycle. Useful for rare cleanup operations like unscribing to an API where youmust dispose of a subscription.
